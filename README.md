@@ -28,9 +28,14 @@ Create `.env.local`:
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
 NEXT_PUBLIC_SUPABASE_AUDIO_BUCKET=audio
+AUTH_USERNAME=reviewer
+AUTH_PASSWORD=choose-a-password
+AUTH_SECRET=generate-a-long-random-secret
 ```
 
 `.env.local` is ignored by Git. Do not add service-role keys to client-side environment variables.
+
+`AUTH_USERNAME`, `AUTH_PASSWORD`, and `AUTH_SECRET` are server-only variables. They protect the app with a single-reviewer login and must also be added in Vercel.
 
 ## Supabase Setup
 
@@ -113,6 +118,9 @@ git push -u origin main
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
    - `NEXT_PUBLIC_SUPABASE_AUDIO_BUCKET`
+   - `AUTH_USERNAME`
+   - `AUTH_PASSWORD`
+   - `AUTH_SECRET`
 5. Deploy.
 6. Open the production URL and verify:
    - Track upload works.
